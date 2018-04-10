@@ -1,0 +1,131 @@
+#profile-portrait {
+	width: 300px;
+}
+
+#profile-column {
+	height: 100%;
+}
+
+#status-text {
+	margin-bottom:5px;
+}
+
+#status-button {
+	width: 100px;
+	margin-bottom: 5px;
+}
+
+#comment-username {
+	font-size: 20px;
+	padding-left: 5px;
+}
+
+#comment-content {
+	margin-top: 10px;
+	font-size: 20px;
+}
+
+#adoption-btn, #message-btn, #add-button {
+	width: 300px;
+}
+
+#beanieName {
+	text-align: center;
+}
+
+#beanie-boo-info {
+	width: 50%;
+	min-width: 250px;
+	display:none;
+}
+
+#invisible-form input{
+	display:none;
+}
+
+#message-box {
+	height: 60%;
+	width: 100%;
+}
+
+#message-button, #message-input {
+	margin: auto 15px;
+	width:100%;
+}
+
+.navbar-inverse {
+	border-radius: 0;
+	background-color: #f9204b;
+	border: 1px solid #f9204b ;
+}
+
+.portrait-text {
+	font-size: 24px;
+}
+
+.navbar-default .navbar-brand {
+    color: white;
+}
+
+.navbar-default .navbar-right li a {
+	color:white;
+}
+
+.thumbnail-img {
+	width: 40%;
+	min-width: 250px;
+	float:right;
+}
+
+.btn.btn-danger {
+	background-color: #f9204b;
+	margin:0;
+}
+.create.btn.btn-danger {
+	width:100%;
+}
+
+.adopt.btn.btn-danger {
+	width: 50%;
+	min-width: 250px;
+	margin: 50px auto;}
+
+.thumbnail.caption {
+	padding-bottom: 0;
+}
+
+.comment-button-container {
+	text-align:center;
+}
+
+.comment-button {
+	width: 100%;
+	min-width: 75px;
+}
+
+.create.form-group {
+	width: 50%;
+	min-width: 250px;
+	margin: 50px auto;
+}
+
+.create.form-control {
+	margin: 9px auto;
+}
+
+.show-img {
+	width:100%;
+}
+
+.well input {
+	margin-bottom: 10px;
+}
+
+#xs-profile-pic img {
+	border-radius: 2px;
+	width: 50px;
+}
+
+#beanie-boo-info .caption {
+	text-align:center;
+}

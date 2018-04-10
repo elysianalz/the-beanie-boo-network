@@ -1,0 +1,20 @@
+<% include ../../partials/header %>
+	
+	<h1>Newsfeed</h1>
+
+	<div class="well">
+		<h4>Make a Status</h4>
+		<form class="form-group" method="POST" action="/profile/status/new">
+			<textarea class="form-control" id="status-text" name="status[content]"></textarea>
+			<button class="btn btn-xs btn-danger pull-right" id="status-button">Post</button>
+		</form>
+	</div>
+	
+	<% users.forEach(function(user){ %>
+		<%user.statuses.forEach(function(status){%>
+			<p><%=status%></p>
+		<%})%>
+	<%});%>
+
+
+<% include ../../partials/footer %>

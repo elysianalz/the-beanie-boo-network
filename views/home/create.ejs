@@ -1,0 +1,10 @@
+<% include ../../partials/header %>
+
+	<form class="create form-group" method="POST" action="/home/create">
+		<input class="create form-control" type="text" name="post[title]" placeholder="title">
+		<input class="create form-control" type="text" name="post[image]" placeholder="image link">
+		<textarea class="create form-control" type="text" name="post[content]" placeholder="content"></textarea>
+		<button class="create btn btn-danger">Create</button>
+	</form>
+
+<% include ../../partials/footer %>

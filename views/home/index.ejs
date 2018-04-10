@@ -1,0 +1,32 @@
+<% include ../../partials/header %>
+		
+	<header class="jumbotron">
+		<div>
+			<h1>Beanie Booboard</h1>
+			<h4>Keep up to date with whats going on on The Beanie Boo Network</h4>
+			<form method="GET" action="/home/create">
+				<button class="btn btn-danger">Create New Post</button>
+			</form>
+		</div>
+	</header>
+
+	<% posts.forEach(function(post){ %>
+		<div class="thumbnail">
+			<div class="row">
+				<div class="caption col-xs-6 col-sm-6">
+					<div class="container">
+						<h2><%=post.title%></h2>
+						<p><%=post.content.substring(0, 50)%>...</p>
+						<p><em><%=post.author.username%></em></p>
+						<p><%=post.created.toDateString()%></p>
+						<a href="/home/<%=post._id%>"class="btn btn-xs btn-danger">Read More</a>
+					</div>
+				</div>
+				<div class="center-block thumbnail-img col-xs-6 col-sm-6">
+					<img class="img-responsive" src="<%=post.image%>">
+				</div>
+			</div>
+		</div>
+	<% }); %>
+
+<% include ../../partials/footer %>

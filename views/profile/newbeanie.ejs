@@ -1,0 +1,38 @@
+<% include ../../partials/header %>
+	
+	<form class="form-group create" method="POST" action="/profile/beanie/new">
+		<h1>Beanie Boo Adoption</h1>
+		<input id="beanie-name" class="form-control create" type="text" name="beanie[name]" placeholder="Beanie Boo Name...">
+		<input id="beanie-code" class="form-control create" type="text" name="beanie[code]" placeholder="Style Number...">
+		<select id="beanie-size" class="form-control create" name="beanie[size]">
+			<option value="">small</option>
+			<option value="-med">medium</option>
+			<option value="-lg">large</option>
+		</select>
+	</form>
+	<button id="find-beanie" class="btn btn-default btn-lg btn-danger center-block adopt">Search</button>
+
+	<div id="beanie-boo-info" class="thumbnail center-block">
+
+		<div><h1 id="beanieName"></h1></div>
+		<img id="beanie-img" class="center-block img-responsive">
+
+		<div class="caption">
+			<p>Species: <span id="beanieSpecies"></span></p>
+			<p>Birthday: <span id="beanieBirth"></span></p>
+			<p><span id="beaniePoem"></span></p>
+		</div>
+
+		<form id="invisible-form" method="POST" action="/profile/beanie/new">
+
+			<input id="namePost" type="hidden" name="beanie[name]" value="">
+			<input id="speciesPost" type="hidden" name="beanie[species]" value="">
+			<input id="poemPost" type="hidden" name="beanie[poem]" value="">
+			<input id="birthdayPost" type="hidden" name="beanie[birthday]" value="">
+			<button id="show-adopt-btn" class="btn btn-default btn-lg btn-danger center-block adopt">Adopt</button>
+
+		</form>
+
+	</div>	
+
+<% include ../../partials/footer %>

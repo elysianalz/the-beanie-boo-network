@@ -1,0 +1,36 @@
+<% include ../../partials/header %>
+		
+		<div class="thumbnail">
+			<img class="show-img img-responsive"src="<%=post.image%>">
+			<div class="caption">
+				<h1><%=post.title%></h1>
+				<p><%=post.content%></p>
+				<p><strong><em><%=post.author.username%></em></strong></p>
+				<p><%=post.created.toDateString()%></p>
+			</div>
+		</div>
+
+		<div class="well">
+			<form class="form-group" method="POST" action="/home/<%=post._id%>/comment">
+				<div class="row">
+					<div class="col-sm-10 col-xs-12">
+						<input class="form-control" type="text" name="comment[content]" placeholder="Make a comment">
+					</div>
+					<div class="col-sm-2 col-xs-12 comment-button-container">
+						<button class="btn btn-sm btn-danger comment-button">Comment</button>
+					</div>
+				</div>
+			</form>
+			<% console.log("num of comments" + post.comments.length); %>
+			<% post.comments.forEach(function(comment){ %>
+				<div class="comment">
+					<hr>
+					<strong><%=comment.author.username%></strong>
+					<span class="pull-right"><%=comment.created.toDateString()%></span>
+					<p><%=comment.content%></p>	
+				</div>
+			<% }); %>
+
+		</div>
+	
+<% include ../../partials/footer %>

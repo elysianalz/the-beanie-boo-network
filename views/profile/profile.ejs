@@ -1,0 +1,107 @@
+<% include ../../partials/header %>
+	
+	<div class="row">
+
+		<div class="col-xs-12 col-sm-6 col-md-4" id="profile-column">
+			<div id="profile-portrait" class="thumbnail center-block">
+				<img src ="https://images.unsplash.com/photo-1496179767723-3e2c77660f6b?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=3e42be8488ede010188bda48215d1995&auto=format&fit=crop&w=500&q=60">
+				<div class="caption">
+					<span class="portrait-text"><%=user.username%></span>
+					<span class="pull-right portrait-text"><i class="fab fa-qq"></i> <%=user.beanies.length%></span>
+				</div>
+			</div>
+			
+			<% if(currentUser.equals(user._id)){ %>
+
+				<form method="GET" action="/profile/beanie/new">
+					<button class="btn btn-default btn-lg btn-success center-block" id="adoption-btn">New Adoption</button>
+				</form>
+
+			<% } else { %>
+
+				<form method="GET" action="/message/<%=user._id%>">
+					<button class="btn btn-default btn-lg btn-success center-block" id="message-btn">Message</button>
+				</form>	
+
+				<%if(user.followers.length < 1) {%>
+
+					<form method="POST" action="/profile/<%=user._id%>/follow">
+						<button class="btn btn-lg btn-success center-block" id="add-button">Follow</button>
+					</form>
+
+				<%} else {%>
+				
+					<%user.followers.forEach(function(follower){%>
+						
+						<%if(follower.equals(currentUser._id)){%>
+				
+							<form action="/profile/<%=user._id%>/unfollow?_method=DELETE" method="POST" >
+								<button class="btn btn-lg btn-success center-block" id="add-button">Unfollow</button>
+							</form>
+
+						<%} else {%>
+
+							<%console.log(user.followers)%>
+							<form method="POST" action="/profile/<%=user._id%>/follow">
+								<button class="btn btn-lg btn-success center-block" id="add-button">Follow</button>
+							</form>
+
+						<%}%>
+
+					<%});%>
+				<%}%>
+			<%}%>
+
+		</div>
+		
+		<div class="col-xs-12 col-sm-6 col-md-8">
+
+			<div class="well">
+				<h4>Make a Status</h4>
+				<form class="form-group" method="POST" action="/profile/status/new">
+					<textarea class="form-control" id="status-text" name="status[content]"></textarea>
+					<button class="btn btn-xs btn-danger pull-right" id="status-button">Post</button>
+				</form>
+			</div>
+
+			
+			<% statuses.forEach(function(status){ %>
+				<div class="thumbnail center-block">	
+					<div class="caption">
+						<span id="xs-profile-pic"><img src="https://images.unsplash.com/photo-1496179767723-3e2c77660f6b?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=3e42be8488ede010188bda48215d1995&auto=format&fit=crop&w=500&q=60"></span>
+
+						<span id="comment-username"><strong><%=status.author.username%></strong></span>
+						<span class="pull-right"><%=status.created.toDateString()%></span>
+						<p id="comment-content"><%=status.content%></p>
+						
+						<% if(status.comments.length){ %>
+							<% status.comments.forEach(function(comment){ %>
+								<hr>
+								<span><strong><%=comment.author.username%></strong></span>
+								<span class="pull-right"><%=comment.created.toDateString()%></span>
+								<p><%=comment.content%></p>
+							<% }); %>	
+						<% } %>
+						
+						<hr>
+						<form action="/profile/<%=status._id%>/new/comment" method="POST" class="form-group">
+							<div class="row">
+								<div class="col-sm-10">
+									<input class="form-control" name="comment[content]" placeholder="comment..." type="text">
+								</div>
+								<div class="col-sm-2">
+									<button class="btn btn-danger" >Comment</button>
+								</div>	
+							</div>
+						</form>
+					</div>
+				</div>
+			<% }); %>
+			
+		</div>
+
+	</div>
+	
+	
+
+<%include ../../partials/footer %>

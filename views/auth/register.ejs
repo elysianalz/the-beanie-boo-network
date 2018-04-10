@@ -1,0 +1,19 @@
+<% include ../../partials/entry-header %>
+		
+	<form class="form-group" action="/register" method="POST">
+			
+		<input class="form-control" type="text" name="username" placeholder="username">
+				
+		<input class="form-control" type="password" name="password" placeholder="password">
+				
+		<input id="re-enter" class="form-control" type="password" name="repassword" placeholder="re-enter password">
+				
+		<button class="btn btn-primary">Sign Up</button>
+
+		<a href="/login" class="hollow-button" id="new-user"><i class="far fa-heart"></i> Existing User <i class="far fa-heart"></i></a>
+
+	</form>
+	
+
+
+<% include ../../partials/entry-footer %>
